@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue + Vuex</title>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vuex"></script>
+</head>
+<body>
+
+<div id="app">
+  Total clicks: {{clicks}}
+  <button @click="onBtnClick">CLICK ME</button>
+</div>
+
+<script type="text/javascript">
+  const store = new Vuex.Store({
+  state: {
+    clicks: 0
+  },
+  mutations: {
+    clicked(state) {
+      state.clicks++;
+    }
+  }
+})
+
+const app = new Vue({
+  el: '#app',
+  store: store,
+  computed: {
+    clicks() {
+      return this.$store.state.clicks;
+    }
+  },
+  methods: {
+    onBtnClick() {
+        this.$store.commit('clicked');
+    }
+  }
+})
+
+</script>
+  
+</body>
+</html>

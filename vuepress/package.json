@@ -1,0 +1,10 @@
+{
+  "name": "vuepress-project",
+  "dependencies": {
+    "vuepress": "latest"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
